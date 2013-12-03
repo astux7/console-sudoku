@@ -10,5 +10,9 @@ describe Cell do
     cell.value = '1'
     expect(cell.filled_out?).to be_true
 	end
+  it 'should return a new value if count of candidates is 1' do
+    cell.value = 0
+    expect(cell.solve).to eq(7) 
+  end
 
 end
