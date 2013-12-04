@@ -1,11 +1,11 @@
 require './cell'
 require './grid'
 cc = Cell.new(0,4)
-gg = Grid.new('015003002000100906270068430490002017501040380003905000900081040860070025037204600')
+gg = Grid.new('800097005021400063690031074012970580067502400900100230249306750100800600080049012')
  #pp = gg.make_row(cc).to_a
-pp = gg.make_blocks
-
-print gg.inspect
+gg.solve
+gg.inspect
+#print gg.inspect
 
 
 

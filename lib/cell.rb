@@ -1,8 +1,9 @@
 class Cell
 
-  def initialize(value,index)
+  def initialize(value,index,neighbour_cells = [])
     @value = value
     @index = index
+    @neighbour_cells = []
     # @neighbours = neighbours.chars.map { |element| element.to_i  } #neighbours 
     #array of cells row,colum and box
   end
@@ -19,9 +20,18 @@ class Cell
   #calculate the candidates for the specific cell
   #substracting from 1..9 what can be if more 1 skip
   def candidates
-    existing_candidates = (1..9).to_a - neighbours
-    return existing_candidates.count > 1 ? 0 : existing_candidates[0].to_i
-     
+    pc = []
+ #print @neighbour_cells
+   
+    @neighbour_cells.flatten.each{ |cell|
+     #pc << cell.value if cell.value != nil
+     pc << cell.value 
+    }
+    #possible_candidates = possible_candidates.to_a
+   
+    existing_candidates = (1..9).to_a - pc.uniq
+  #  puts existing_candidates
+     existing_candidates 
   end
 
   def neighbours
@@ -34,14 +44,17 @@ class Cell
   end
 
 
-  def solve
+  def solve(neighbours )
     # do nothing if solved
     # request the list of candidates and 
     # get a new value if there's only one possible candidate
-    return @value if filled_out?
-    have_candidates = candidates
-    @value = have_candidates if have_candidates != 0 
-    @value
+    
+   # return @value if filled_out?
+    @neighbour_cells = neighbours 
+    candi = candidates
+    #puts candi.count
+    return @value = candi[0]  if candi.count == 1
+    @value 
   end
 
 end
