@@ -12,17 +12,28 @@ describe Grid do
        expect(grid.cells.first.filled_out?).to be_false
     end
     it 'should have a solved second cell with value 1' do
-      expect(grid.cells[1].filled_out?).to be_true
+       expect(grid.cells[1].filled_out?).to be_true
     end
     it 'should have still not solved cells' do
-      expect(grid.solved?).to be_false
+       expect(grid.solved?).to be_false
     end
     it 'should print string' do
       expect(grid).to receive(:print).with("015003002\n000100906\n270068430\n490002017\n501040380\n003905000\n900081040\n860070025\n037204600")
       grid.inspect
     end
+    it 'should return 4th block of  puzzle' do
+      expect(grid.make_blocks[3]).to eq('490501003')
+    end
+    it 'should return column of 5th element in puzzle ignoring 0' do
+      expect(grid.make_column(4)).to eq('6487')
+    end
+    it 'should return row 5th element in puzzle ignoring 0' do
+      expect(grid.make_row(4)).to eq('1532')
+    end
+    it 'should return uniq array of 5th element neighbours ' do
+      expect(grid.set_neighbours(4)).to eq('15326487')
 
-
+   end
   end
 
 
@@ -33,7 +44,7 @@ describe Grid do
      
 
     it "can solve the puzzle" do
-      expect(grid.solved?).to be_false
+     # expect(grid.solved?).to be_false
       #grid.solve
      # expect(grid.solved?).to be_true
      # expect(grid.to_s).to eq('615493872348127956279568431496832517521746389783915264952681743864379125137254698')

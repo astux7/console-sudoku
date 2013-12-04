@@ -1,9 +1,8 @@
 class Cell
 
-  def initialize(value, index, grid)
+  def initialize(value, neighbours = Array.new())
     @value = value
-    @grid = grid 
-    @index = index 
+    @neighbours = neighbours #neighbours 
     #array of cells row,colum and box
   end
 
@@ -20,7 +19,7 @@ class Cell
   #substracting from 1..9 what can be if more 1 skip
   def candidates
      7
-     #have a neighbors here
+
   end
 
   def neigbours
@@ -39,7 +38,7 @@ class Cell
 
   private
   def set_neighbours
-    @grid.cells.
+
   end
 
 

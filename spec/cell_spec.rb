@@ -14,5 +14,6 @@ describe Cell do
     cell.value = 0
     expect(cell.solve).to eq(7) 
   end
+  
 
 end
