@@ -17,8 +17,8 @@ class Grid
   end
 
   def find_block(cell, block)
-    0.upto(8) { |i| 
-      block[i].flatten.each{|cc| return i if cc.index == cell.index}
+    0.upto(8) { |index| 
+      block[index].flatten.each{|cc| return index if cc.index == cell.index}
     }
   end
 
@@ -43,14 +43,14 @@ class Grid
   def make_row(cell)
     element_column, key = [], (cell.index/9)*9
     (key).upto(key+8) {|iter|
-      element_column << @cells[iter] # if @cells[iter].value != '0'
+      element_column << @cells[iter] 
     }
     element_column
   end
 
   def set_neighbours
      @cells.each do |cell|
-        cell.neighbour_cells = neighbour_indicies(cell)#.map{|c| @cells[c]}
+        cell.neighbour_cells = neighbour_indicies(cell)
     end
   end
 

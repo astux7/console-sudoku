@@ -7,7 +7,7 @@ class Cell
     #array of cells row,colum and box
   end
 
-  attr_accessor :value, :index
+  attr_accessor :value, :index, :neighbour_cells
   # returns true if the cell is filled out, false otherwise
   def filled_out?
     @value == 0 ? false : true
@@ -25,15 +25,7 @@ class Cell
     }
     existing_candidates = (1..9).to_a - possible_candidates.uniq
   end
-
-  def neighbours
-    @neighbour_cells
-  end
-
-  def neighbour_cells=(cells)
-    @neighbour_cells = cells
-  end
-
+  
   def solve
     # do nothing if solved
     # request the list of candidates and 
