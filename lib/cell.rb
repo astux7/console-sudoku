@@ -4,7 +4,6 @@ class Cell
     @value = value
     @index = index
     @neighbour_cells = []
-    # @neighbours = neighbours.chars.map { |element| element.to_i  } #neighbours 
     #array of cells row,colum and box
   end
 
@@ -35,11 +34,11 @@ class Cell
     @neighbour_cells = cells
   end
 
-  def solve(neighbours )
+  def solve
     # do nothing if solved
     # request the list of candidates and 
     # get a new value if there's only one possible candidate
-    @neighbour_cells, candidates_range = neighbours, candidates 
+    candidates_range =  candidates
     return @value = candidates_range[0]  if candidates_range.count == 1
     @value 
   end

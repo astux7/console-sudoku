@@ -26,38 +26,27 @@ describe Grid do
       block_4  = grid.make_blocks[3]
       blocker  = block_4[0].to_a
       expect(blocker[0].value).to eq(4)
-        #'490501003')
     end
     it 'should return column of 5th element in puzzle ignoring 0' do
       cc = Cell.new(0,5)
       element_5  = grid.make_column(cc)
       expect(element_5[0].value).to eq(3)
-     
     end
+
     it 'should return row 5th element in puzzle ignoring 0' do
       cc = Cell.new(0,5)
       element_5  = grid.make_row(cc)
       expect(element_5[2].value).to eq(5)
     end
-    it 'should return uniq array of 5th element neighbours ' do
-      #raise grid.neighbour_indicies(cell)
-     # expect(grid.neighbour_indicies(cell)).to eq('15326487')
-
-   end
   end
 
- context "solving sudoku" do
+  context "solving sudoku" do
     it "can solve the puzzle" do
-     expect(grid.solved?).to be_false
+      expect(grid.solved?).to be_false
       grid.solve
-      #raise 
-      grid.inspect
-     #raise grid.cell.inspect
       expect(grid.solved?).to be_true
-
       expect(grid).to receive(:print).with("615493872\n348127956\n279568431\n496832517\n521746389\n783915264\n952681743\n864379125\n137254698")
       grid.inspect
-
     end
   end
 end
