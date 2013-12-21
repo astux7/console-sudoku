@@ -23,4 +23,14 @@ describe Cell do
      cell.solve
      expect(cell.filled_out?).to be_false
   end
+
+  it "should solve itself if only one value is possible" do
+    neighbours = ((1..9).to_a - [5]).map{|n| Cell.new(n, 0)}
+    cell.neighbour_cells = neighbours
+    expect(cell).not_to be_filled_out
+    cell.solve
+    expect(cell).to be_filled_out
+    expect(cell.value).to eq(5)
+  end
+
 end

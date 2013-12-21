@@ -57,7 +57,7 @@ class Grid
     #to solve the puzzle
   def solve
     set_neighbours
-    outstanding_before, looping = @cells.count, false
+    outstanding_before, looping = @cells.count*100, false
     while !solved? && !looping
       try_to_solve # ask each cell to solve itself
       outstanding         = @cells.count {|c| c.filled_out? }

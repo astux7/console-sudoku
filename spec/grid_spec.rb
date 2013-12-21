@@ -24,8 +24,8 @@ describe Grid do
     end
     it 'should return 4th block of  puzzle' do
       block_4  = grid.make_blocks[3]
-      blocker  = block_4[0].to_a
-      expect(blocker[0].value).to eq(4)
+      block_4_values = block_4.flatten.map{|cell| cell.value }.join
+      expect(block_4_values).to eq('490501003')
     end
     it 'should return column of 5th element in puzzle ignoring 0' do
       cc = Cell.new(0,5)
